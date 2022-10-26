@@ -1,72 +1,139 @@
 ---
-title: How to Install and use WhatATheme?
+title: 엔터티 (Entity)
 layout: post
-post-image: https://raw.githubusercontent.com/thedevslot/WhatATheme/master/assets/images/How%20to%20install%20and%20use%20WhatATheme.png?token=AHMQUEPHRKQFL5FS624RDJ26Z64HK
-description: This post will guide you to install WhatATheme on your Jekyll site, follow
-  the easy steps to set up WhatATheme.
+post-image: ""
+description: Markdown
 tags:
-- how to
-- setup
-- theme
+- SQL
+- DATABASE
 ---
 
-# What is WhatATheme?
->You’ll find this post in your ***_posts*** directory. Go ahead and edit it and re-build the site to see your changes. >You can rebuild the site in many different ways, but the most common way is to run `bundle exec jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VfPa2c9kwhQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+두 번째 시간으로 데이터 모델을 이해할 때 가장 명확하게 이해야 하는 개념 중에 하나인 엔터티(Entity)에 대해 알아보도록 하자.
 
----
+--------------------------------------------------------------
+### 엔터티의 개념
+>데이터 모델과 데이터베이스에 권위자가 정의한 사항
+- 변별할  수 있는 사물 -Peter Chen
+- 데이터베이스 내에서 변별 가능한 객체 - C.J Date
+- 정보를 저장할 수 있는 어떤 것 - James Martin
+- 정보가 저장될 수 있는 사람, 장소, 물건, 사건, 개념 등 - Thomas Bruce
 
-**WhatATheme** is a customizable Jekyll Portfolio theme which supports blogging. You can use this theme in order to create an elegant, fully responsive portfolio which includes
+>위 정의들의 공통점
+- 엔터티는 사람, 장소, 물건, 사건, 개념 등의 명사에 해당한다.
+- 엔터티는 업무상 관리가 필요한 관심사에 해당한다.
+- 엔터티는 저장이 되기 위한 어떤 것이다.
 
-### Home Page -
-* A Hero section - A section where you can outsource an image which will work as the background for the particular section; it also will include your name and a tagline which can be easily manipulated via the _config.yml file.
-* An About section - A section where you can include your image and a 60 word paragraph which again you can easily manipulate using the _config.yml file.
-* A Contact section - A section where you can include 3 direct ways to contact<br>
-`Ping on Messenger`<br>
-`Send an Email`<br>
-`Tweet on Twitter`<br>
-The contact section will also include 10 different social media buttons for your audience to follow.<br>
-`Facebook`, `Twitter`, `Instagram`, `LinkedIn`, `GitHub`, `YouTube`, `Reddit`, `Behance`, `Dribbble` & `Spotify`.
+※ 엔터티를 이해할 때 눈에 보이는 것만 엔터티로 생각해서는 안되며, 눈에 보이지 않는 개념등에 대해서도 엔터티로서 인식할 수 있어야 한다.
 
-### Blog -
-The blog includes a horizontal card list where the latest articles are fetched from the _posts folder automatically in top-down format. It also includes an instant search box which matches your query from the title, description & content of your post and shows the result as soon as you type.<br>
-The blog card includes
-* Post Title
-* 300 words from the content of the post
-* The publish date
-* The time which will be required to read the post.
+------------------------------------------------------------
+### 엔터티와 인스턴스에 대한 내용과 표기법
+- 엔터티를 표현하는 방법은 각각의 표기법에 따라 조금씩 차이는 있지만 대부분 사각형으로 표현된다. 
 
-### Projects -
-The Projects page will include all the projects from the **`projects.yml`** file which is present in the _data folder.<br>
-Projects will be showcased in a card-list format where each card will contain
-* An image related to the project
-* A Project Title
-* A Project Description of about 80 words
+엔터티와 엔터티간의 ERD를 그리면 아래의 사진과 같이 표현할 수 있다.
+<img src="https://velog.velcdn.com/images/i_am_heeeun/post/23d972b8-a24f-4ec0-b118-91577d47bd80/image.png" width="600px" height="">
+ 엔터티와 인스턴스를 표현하면 아래의 사진과 같다.
+<img src="https://velog.velcdn.com/images/i_am_heeeun/post/a81759cb-06bc-468c-986c-6c4b92dddbf3/image.png" width="600px" height="">
+※ 참고
+오브젝트 모델링에는 클래스와 오브젝트라는 개념이 있다. 클래스는 여러 개의 오브젝트를 포함하는 오브젝트 깡통이다. 이러한 개념은 정보공학의 엔터티가 인스턴스를 포함하는 개념과 비슷하다.
 
-### Footer -
-The footer includes
-* A small about the author widget which show the same `Author Image` as mentioned in the about section of the Home page which includes `Name of the Author`, `Around 75 words about the author`.
-* A more link widget which includes a link to any extra page that you've created and a `Subscribe via RSS` link.
-* A Recent posts widget which will include latest 3 posts.
+------------------------------------------------------------
+### 엔터티의 특징
+- 도출한 엔터티가 다음의 성질을 만족하지 못하면 적절하지 않은 엔터티일 확률이 높다.
 
-#### Extra Features -
-WhatATheme comes pre installed with
-* **HTML Compressor** - It'll compress all the pages by removing any extra space or blank lines.
-* **Google Analytics** - A web analytics service offered by Google that tracks and reports website traffic. For more information [click here](https://analytics.google.com){:target="blank"}.
-* **Disqus** - A worldwide blog comment hosting service for web sites and online communities that use a networked platform. For more information about Disqus [click here](https://help.disqus.com/en/articles/1717053-what-is-disqus){:target="blank"}
+> - 반드시 해당 업무에서 필요하고 관리하고자 하는 정보이어야 한다.
+- 유일한 식별자에 의해 식별이 가능해야 한다.
+- 영속적으로 존재하는 인스턴스의 집합이어야 한다.
+- 엔터티는 업무 프로세스에 의해 이용돼야 한다.
+- 엔터티는 반드시 속성이 있어야 한다.
+- 엔터티는 다른 엔터티와 최소 한 개 이상의 관계가 있어야 한다.
 
-	##### For more information about WhatATheme [click here](https://github.com/thedevslot/WhatATheme/blob/gh-pages/README.md){:target="blank"}.
+#### 1. 업무에서 필요로 하는 정보(필요성)
+>- 반드시 시스템을 구축하고자 하는 업무에서 필요로 하고 관리하고자 하는 정보여야 한다.
+- 시스템 구축 대상인 해당 업무에서 그 엔터티를 필요로 하는가를 판단하는 것이 중요하다.
+- 엔터티를 도출할 때는 업무 영역에서 관리할 필요가 있는지를 먼저 판단하는 것이 중요하다.
 
----
+#### 2. 식별 가능해야한다.(유일성)
+> - 식별자에 의해 식별할  수 있어야 한다.
+- 엔터티를 도출하는 경우에 각각의 업무적으로 의미를 갖는 인스턴스가 식별자에 의해 한 개씩만 존재하는지 검증해 보아야 한다.
+- 유일한 식별자는 그 엔터티의 인스턴스만의 고유한 이름이다. 두 개이상의 엔터티를 대변한다면 그 식별자는 잘못 설계된 것이다.
 
-# Installation
-### Step 1 - Setting up WhatATheme
-> * Fork the [repository](https://github.com/thedevslot/WhatATheme/tree/master){:target="blankl"}
-> * Go to repository settings and set Github Pages source as master.
-> * Your new site should be ready at [https://username.github.io/WhatATheme/](#){:target="blank"}
+#### 3. 인스턴스의 집합(인스턴스 수)
+>- 영속적으로 존재하는 인스턴스의 집합이 되어야 한다는 점이다.
+- 엔터티의 특징중 '한 개'가 아니라 '두개 이상'이라는 집합 개념은 매우 중요하다.
+- 업무를 분석하고 설계하는 동안 설계자가 모든 업무에 대입해보고 검증해 보아야 할 중요한 개념이다.
+- 하나의 엔터티는 여러 개의 인스턴스를 포함한다.
 
-### Step 2 - Making changes via **_config.yml**
-> * Open _config.yml file
-> * Fill the available details accordingly
-> * Commit the changes
+#### 4. 업무 프로세스에 의해 이용돼야한다.(프로세스 존재)
+>- 업무 프로세스가 그 엔터티를 반드시 이용해야 한다.
+- 업무 프로세스가 이용하지 않는 엔터티는 그 업무 엔터티가 아니다.
+- 업무 프로세스에 의해 CRUD가 발생하지 않는 고립된 엔터티는 엔터티를 제거하거나 누락된 프로세스가 존재하는지 살펴보고 해당 프로세스를 추가해야한다.
+
+#### 5. 속성 포함(속성의 존재)
+>- 엔터티에는 반드시 속성이 포함되어야 한다.
+- 주식별자만 존재하고 일반속성은 전혀 없는 경우도 마찬가지로 적절한 엔터티라고 볼 수 없다. 
+- 예외적으로 관계 엔터티는 주식별자 속성만 가지고 있어도 엔터티로 인정한다.
+
+#### 6. 관계의 존재
+>- 엔터티는 다른 엔터티와 최소 한 개 이상의 관계가 가져야 한다.
+- 관계가 설정되지 않은 엔터티의 도출은 부적절한 엔터티가 도출되었거나 아니면 다른 엔터티와 적절한 관계를 찾지 못했을 가능성이 높다.
+
+단 데이터 모델링을 하면서 관계를 생략해 표현해야 하는 경우도 있다.
+통계성 엔터티 도출, 코드성 엔터티 도출, 시스템 처리시 내부 필요에 의한 엔터티 도출과 같은 경우가 그것이다.
+>통계성 엔터티 도출
+- 업무진행 엔터티로부터 통계 업무만을 위해 별도로 엔터티를 다시 정의하게 되므로 엔터티 간 관계가 생략되는 경우이다. 
+
+>코드성 엔터티 도출
+- 너무 많은 엔터티와 엔터티 간의 관계 설정으로 인해 데이터 모델의 읽기 효율성이 저하되어 도저히 모델링 작업을 진행할 수 없게 된다.
+- 물리적으로 테이블과 프로그램 구현 이후에도 외부키에 의한 참조 무결성을 체크하기 위한 규칙을 데이터베이스 기능에 맡기지 않는 경우가 대부분이다. 이에 따라 논리적으로나 물리적으로 관계를 설정할 이유가 없다.
+
+>시스템 처리시 내부 필요에 의한 엔터티 도출
+- 트랜잭션이 업무적으로 연관된 테이블과 관계 설정이 필요하다.
+- 업무적인 필요가 아니고 시스템 내부적인 필요에 따라 생성된 엔터티이므로 관계를 생략하게 된다.
+
+------------------------------------------------------------
+### 엔터티의 분류
+엔터티는 엔터티 자신의 성격에 의해 실체 유형에 따라 구분하거나 업무를 구성하는 모습에 따라 구분이 되는 발생 시점에 의해 분류해 볼 수 있다.
+#### 1. 유무형에 따른 분류
+일반적으로 엔터티는 유무형에 따라 유형엔터티,개념엔터티, 사건엔터티로 구분된다.
+>- 유형엔터티(Tangible Entity)
+: 물리적인 형태가 있고 안정적이며 지속적으로 활용되는 엔터티로 업무로부터 엔터티를 구분하기가 가장 용이하다.
+
+>- 개념엔터티(Conceptual Entity)
+: 물리적인 형태는 존재하지 않고 관리해야 할 개념적 정보로 구분되는 엔터티이다.
+
+>- 사건엔터티(Event Entity)
+: 업무를 수행함에 따라 발생하는 엔터티로서 비교적 발생량이 많으며 각종 통계자료에 이용될 수 있다.
+
+#### 2. 발생시점에 따른 분류
+엔터티의 발생시점에 따라 기본,키엔터티, 중심엔터티,행위엔터티로 구분할 수 있다.
+> - 기본엔터티(Fundamental Entity)
+:그 업무에 원래 존재하는 정보로서 다른 엔터티와 관계에 의해 생성되지 않고 독립적으로 생성이 가능하고 자신은 타 엔터티의 부모역할을 하게 된다.
+다른 엔터티로부터 주식별자를 상속받지 않고 자신의 고유한 주식별자를 가지게 된다.
+
+>- 중심엔터티(Main Entity)
+:기본엔터티로부터 발생되고 그 업무에서 중심적인 역할을 한다.
+데이터의 양이 많이 발생되고 다른 엔터티와의 관계를 통해 많은 행위엔터티를 생성한다.
+
+>- 행위엔터티(Active Entity)
+:두 개 이상의 부모엔터티로부터 발생하고, 자주 내용이 바뀌거나 데이터 양이 증가한다.
+분석 초기단계에서는 잘 나타나지 않으며, 상세 설계단계나 프로세스와 상관모델링을 진행하면서 도출될 수 있다.
+
+#### 3. 엔터티 분류 방법의 예
+유무형, 발생시점에 따라 엔터티 분류 방법에 대한 예를 나타낸 것이다.
+엔터티가  스스로 생성될 수 있는지 여부에 따라 독립엔터티인지 의존엔터티인지를 구분할 수도 있다.
+![](https://velog.velcdn.com/images/i_am_heeeun/post/439af089-a19a-45a5-aa0f-61f55408b164/image.png)
+
+------------------------------------------------------------
+### 엔터티의 명명
+엔터티를 명명하는 일반적인 기준 5가지
+>- 가능하면 현업업무에서 사용하는 용어를 사용한다.
+- 가능하면 약어를 사용하지 않는다.
+- 단수명사를 사용한다.
+- 모든 엔터티에서 유일하게 이름이 부여되어야 한다.
+- 엔터티 생성 의미대로 이름을 부여한다.
+
+※ 에터티의 이름을 업무목적에 따라 생성되는 자연스러운 이름을 부여해야 하는데 이와 상관없이 임의로 이름을 부여하게 되면 프로젝트에서는 커뮤니케이션 오류로 인해 문제를 야기할 수 있게 된다.
+
+------------------------------------------------------------
+출처: SQL 전문가 가이드, https://dataonair.or.kr/

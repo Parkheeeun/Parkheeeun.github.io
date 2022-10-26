@@ -1,70 +1,278 @@
 ---
-title: Sample Post
+title: 데이터모델
 layout: post
-post-image: "https://raw.githubusercontent.com/thedevslot/WhatATheme/master/assets/images/SamplePost.png?token=AHMQUEPC4IFADOF5VG4QVN26Z64GG"
+post-image: ""
 description: Markdown
 tags:
-- sample
-- post
-- test
+- SQL
+- DATABASE
 ---
 
-This post will show you how the content will look like in the post pages and how the headlines, quotes and quotes will be represented. Jekyll is mainly used to write simple markdown and after that it renders out a static pages, so you need to know the basics of writing markdown for that.
-For more information about writing markdown you can checkout the following markdown cheatsheets:
-* [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
-* [Markdown Guide](https://www.markdownguide.org/cheat-sheet/)
-* [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
+첫 번째 시간으로 데이터 처리에 있어 원천저장소를 제공하는 데이터베이스의 설계 기법인 데이터 모델의 기본적인 개념을 이해해보도록 하자.
 
----
+### 모델링의 이해
+#### 1. 모델링에 대한 다양한 정의
+> - 어떤 것에 대한 예비표현으로 그로부터 최종 대상이 구축되도록 하는 계획으로서 기여하는것이다.
+>- 복잡한 현실세계를 단순화하여 표현하는것이다.
+>- 모델이란 사물 또는 사건에 관한 양상이나 관점을 연관된 사람이나 그룹을 위해 명확하게 하는 것이다.
 
-# This is the h1 text
-## This is the h2 text
-### This is the h3 text
-#### This is the h4 text
-##### This is the h5 text
-###### This is the h6 text
+#### 2. 모델링의 특징
+- 시스템구축에서 모델링은 계획,분석,설계  단계에서 업무를 분석하고 설계할 때, 이후 구축,운영 단계에서 변경과 관리할 때 이용된다. 
 
-**Bold Text in the post will look like:**<br>
-**This text is Bold**
+- 모델링은 추상화, 단순화, 명확화하기 위해 일전한 표기법에 의해 표현하는 기법이다. 이제 3개의 특징에 대해 알아보자.
 
-**Italic Text in the post will look like:**<br>
-*This text is Italic*
+>- 추상화
+: 현실세계를 일정한 형식에 맞추어 표현한다는 의미로 정리할 수있다.
+다양한 현상을 일정한 양식인 표기법에 따라 표현하는 것이다.
 
-> Quotes on your post will look like this
+ >- 단순화
+ : 복잡한 현실세계를 약속된 규약에 의해 제한된 표기법이나 언어로 표현하여 쉽게 이해할 수 있도록하는 개념을 의미한다.
+ 
+ >- 명확화
+ : 누구나 이해하기 쉽게 하기 위해 대상에 대한 애매모함을 제거하고 정확하게 현상을 기술하는 것이다.
+ 
+#### 3. 모델링의 세 가지 관점
+- 모델링은 크게 세가지 관점으로 구분해서 볼 수 있다.
 
-`Codes on your post will look like this`
+>- 데이터 관점
+: 업무가 어떤 데이터와 관련이 있는지 또는 데이터 간의 관계는 무엇인지에 대해 모델링하는 방법
 
-**Link in the post will look like:**<br>
-[This is a link](#)
+ >- 프로세스 관점
+ : 실제하고 있는 업무는 무엇인지 또는 무엇을 해야 하는지를 모델링하는 방법
+ 
+ >- 데이터와 프로세스의 상관 관점
+ : 업무가 처리하는 일의 방법에 따라 데이터는 어떻게 영향을 받고 있는지 모델링하는 방법
+ 
+ 
+-----------------------------------------------------
+ 
+ 
+### 데이터 모델의 기본 개념 이해
 
-**Bullet list in the post will look like:**
-* Item 1
-* Item 2
-* Item 3
-* Item 4
-* Item 5
+#### 1. 데이터 모델링이란?
+>- 정보시스템을 구축하기 위한 데이터 관점의 업무 분석 기법
+- 현실세계의 데이터에 대해 약속된 표기법에 의해 표현하는 과정
+- 데이터베이스를 구축하기 위한 분석,설계의 과정
 
-**Number list in the post will look like:**
-1. Item 1
-2. Item 2
-3. Item 3
-4. Item 4
-5. Item 5
+#### 2. 데이터 모델이 제공하는 기능
+>- 시스템을 현재 또는 원하는 모습으로 가시화하도록 도와준다.
+- 시스템의  구조와  행동을 명세화할 수 있게 한다.
+- 시스템을 구축하는 구조화한 틀을 제공한다.
+- 시스템 구축 과정에서 결정한 것을 문서화한다.
+- 다양한 영역에 집중하기 위해 다른 영역의 세부사항은 숨기는 다양한 관점을 제공한다.
+- 특정 목표에 따라 구체화한 상세 수준의 표현방법을 제공한다.
 
-**Images in the post will look like:**<br>
-![Test Image](/WhatATheme/assets/images/1280x720%20Placeholder.png)
+-------------------------------------------------------------
 
-**Normal text in the post will look like**<br>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id finibus nisl. Etiam in hendrerit est. Nulla non erat ac lectus interdum lobortis. Vestibulum at mi ex. Mauris nisl mi, venenatis et feugiat nec, finibus porttitor velit. Suspendisse tincidunt lobortis leo, quis tristique tellus iaculis quis. Donec eleifend pulvinar gravida. Proin non lorem eros. Donec sit amet finibus ex, eget vestibulum nunc. Ut ut enim id purus porttitor tristique. Vivamus tincidunt eleifend hendrerit. Proin metus felis, ultrices vel dui in, porta dapibus dui. Sed sagittis ex vitae dui tristique dignissim. Cras vel leo ipsum.
+### 데이터 모델링의 중요성과 유의점
+- 데이터 모델링이 중요한 이유는 파급효과, 복잡한 정보 요구사항의 간결한 표현, 데이터 품질로 정리할 수 있다. 이제부터 하나씩 알아보자.
+#### 1. 파급효과(Leverage)
+>데이터모델의 변경이 발생하면 표준 영향 분석과 응용 변경 영향 분석이 일어난다. 그 이후에 해당 분야의 실제적인 변경작업이 이뤄지는데 이 시기의 데이터 구조의 변경으로 인한 일련의 변경작업은 전체 시스템 구축 프로젝트에서 큰 위험요소가 된다.
 
-Aenean ac neque et risus mattis accumsan. Sed ac tellus molestie, lacinia ante sit amet, convallis felis. Maecenas aliquet lectus nec euismod auctor. Donec finibus pellentesque tortor, ac efficitur metus suscipit non. Proin diam orci, blandit quis malesuada ac, efficitur a nisl. Mauris eleifend consequat blandit. Sed egestas quam et orci gravida, non euismod metus scelerisque. Curabitur venenatis pellentesque erat commodo pharetra. Fusce id ante nec ipsum fringilla auctor. In justo quam, feugiat placerat eleifend dapibus, luctus et quam. Fusce facilisis erat ut odio convallis viverra et id mauris. Sed vehicula tempus consectetur. Aliquam pharetra, purus non egestas tristique, tellus massa fringilla est, id sagittis tellus urna non mauris. Suspendisse fringilla, velit nec blandit facilisis, ligula ante imperdiet est, et placerat magna sem quis tortor.
+#### 2. 복잡한 정보 요구 사항의 간결한 표현(Conciseness)
+>데이터 모델은 구축할 시스템의 정보 요구 사항과 한계를 가장 명확하고 간결하게 표현할 수 있는 도구이다.
 
-Vestibulum vitae fermentum velit, rhoncus egestas orci. Nulla at purus ut orci posuere vulputate. In eget leo diam. In congue in diam nec elementum. Suspendisse fringilla ante nulla, eu tristique orci ultrices eget. Aenean non lorem tellus. Vestibulum tempor metus sit amet tellus feugiat, sit amet consequat lacus ultricies.
+#### 3. 데이터 품질(Data Quality)
+- 데이터 품질의 문제가 야기되는 중대한 이유 중 하나가 데이터 구조때문이다.
+그러므로 데이터 모델링을 할 때 유의할 점은 다음과 같다.
 
-Donec imperdiet, lectus eget congue cursus, dolor enim finibus risus, ut molestie lorem tellus non tortor. Donec quam nibh, molestie in dapibus et, efficitur non tortor. Morbi orci tellus, mollis vel mi vitae, auctor lobortis erat. Ut gravida velit eget ligula lacinia, id rhoncus tellus gravida. Maecenas laoreet rutrum consequat. Suspendisse sed nibh dui. Curabitur dictum euismod mollis. Sed egestas libero libero, eu accumsan augue placerat non. Nunc id condimentum orci. Mauris vitae sollicitudin quam.
+>- 중복 (Duplication)
+  - 데이터 모델은 같은 데이터를 사용하는 사람,시간,장소를 파악하는데      도움을 준다.
+  - 이러한 지식 응용은 데이터베이스가 여러 장소에 같은 정보를 저장하는 잘못을 하지 않도록 한다.
 
-**Giphy Gifs will look like:**<br>
-<iframe src="https://giphy.com/embed/ZqlvCTNHpqrio" width="480" height="259" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/laughing-despicable-me-minions-ZqlvCTNHpqrio">via GIPHY</a></p>
+>- 비유연성 (Inflexibility)
+  - 데이터의 정의를 데이터의 사용 프로세스와 분리함으로써 데이터 모델링은 데이터 혹은 프로세스의 작은 변화가 어플리케이션과 데이터베이스의 중대한 변화를 일으킬 가능성을 줄인다. 
 
-**YouTUbe Videos will look like:**<br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jTPXwbDtIpA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+>- 비일관성 (Inconsistency)
+   - 데이터의 중복이 없더라도 비일관성은 발생한다.
+   - 데이터 모델링을 할 때 데이터와 데이터간 상호 연관 관계에 대한 명확한 정의는 이러한 위험을 사전에 예방한다.
+
+-------------------------------------------------------------
+### 데이터 모델링의 3단계 진행
+현실세계에서 데이터베이스까지  만들어지는 과정은 다음과 같다.
+개념적 데이터 모델 -> 논리적 데이터 모델 -> 물리적 데이터 모델
+
+|데이터 모델링|내용         
+|-------|----|
+|개념적 데이터 모델링|추상화 수준이 높고 업무 중심적이고 포괄적인 수준의 모델링 진행. 전사적 데이터 모델링, EA수립 시 많이 이용한다.
+|논리적 데이터 모델| 시스템으로 구축하고자 하는 업무에 대해 Key, 속성, 관계 등을 정확하게 표현, 재사용성이 높다.  |
+|물리적 데이터 모델| 실제로 데이터베이스에 이식할 수 있도록 성능, 저장 등 물리적인 성격을 고려하여 설계한다.| 
+
+#### 1. 개념적 데이터 모델링(Conceptual Data Modeling)
+>핵심 엔터티와 그들 간의 관계를 발견하고 그것을 표현하기 위해서 엔터티-관계 다이어그램을 생성하는것.
+엔터티-관계 다이어그램은 조직과 다양한 데이터베이스 사용자에게 어떠한 데이터가 중요한지 나타내기 위해서 사용.
+
+- 개념데이터모델을 통해 조직의 데이터 요구를 공식화 하는 것은 두가지의 중요한 기능을 제공한다.
+
+> - 개념 데이터 모델은 사용자와 시스템 개발자가 데이터 요구사항을 발견하는 것을 지원.
+>- 개념 데이터 모델은 현 시스템이 어떻게 변형되어야 하는가를 이해하는데 유용.
+
+#### 2. 논리적 데이터 모델링(Logical Data Modeling)
+>논리적 데이터 모델링은 데이터베이스 설계 프로세스의 Input으로서 비즈니스 정보의 논리적인 구조와 규칙을 명확하게 표현하는 기법 또는 과정이다.
+데이터 모델링 과정에서 가장 핵심이 되는 부분이다. 이 단계에서 수행하는 또 한가지 중요한 활동은 정규화이다.
+
+>※ 정규화
+논리 데이터 모델 상세화 과정의 대표적인 활동이다.
+논리 데이터 모델의 일관성 확보, 중복제거로 속성들이 가장 적절한 엔터티에 배치되도록 한다.
+신뢰성 있는 데이터 구조를 얻는걸 목적으로 한다.
+
+
+#### 3. 물리적 데이터 모델링(Physical Data Modeling)
+>데이터가 물리적으로 컴퓨터에 어떻게 저장될 것인가에 대한 정의를 물리적 스키마라고 한다.
+이 단계에서 결정되는 건 테이블, 컬럼등으로 표현되는 물리적인 저장구조와 사용될 저장장치, 자료를 추출하기위해 사용될 접근방법 등이 있다.
+
+---------------------------------------------------------
+### 프로젝트 생명주기에서 데이터 모델링
+- 폭포수 기반에서는 데이터 모델링의 위치가 분석과 설계 단계로 구분하여 명확하게 정의할 수 있다.
+![](https://velog.velcdn.com/images/i_am_heeeun/post/cee44123-b9b5-45dc-946a-429af446003c/image.png)
+
+
+---------------------------------------------------------
+### 데이터 모델링에서 데이터 독립성의 이해
+#### 1. 데이터 독립성의 필요성
+>유지보수 비용증가
+데이터 중복성 증가
+데이터 복잡도 증가
+요구사항 대응 저하로 인해 데이터 독립성이 필요하다.
+
+
+※ 데이터 독립성 확보시 효과
+>- 각  view의 독립성을 유지하고 계층별 view에 영향을 주지 않고 변경이 가능하다.
+- 단계별 스키마에 따라 데이터 정의어(DDL), 데이터 조작어(DML)가 다름을 제공한다.
+
+#### 2. 데이터베이스 3단계 구조
+- ANSI/SPARC의 3단계 구성의 데이터 독립성 모델은 외부단계, 개념적단계, 내부적단계로 구성된 서로 간섭되지 않는 모델을 제시하고있다.
+>- 외부 단계
+: 사용자와 가까운 단계, 사용자 개개인이 보는 자료에 대한 관점과 관련이 있는 부분이다. 
+>- 개념 단계
+: 사용자가 처리하는 데이터 유형의 공통적인 사항을 처리하는 통합된 뷰를 스키마 구조로 디자인한 형태이다.
+>- 내부적 단계
+: 데이터가 물리적으로 저장된 방법에 대한 스키마 구조이다.
+
+#### 3. 데이터 독립성 요소
+> - 외부 스키마 (External Schema)
+: view 단계 여러개의 사용자 관점으로 구성되어있다. 즉 사용자 단계로서 사용자가 보는 개인적 DB스키마이다. 
+DB의 사용자나 응용프로그래머가 접근하는 DB정의이다.
+
+>- 개념 스키마 (Conceptual Schema)
+: 개념단계 하나의 개념적 스키마로 구성되어있다. 
+모든 사용자 관점을 통합한 조직 전체의 DB를 기술하는 것이다.
+모든 응용시스템들이나 사용자들이 필요로 하는 데이터를 통합한 조직전체의 DB를 기술한 것으로 DB에 저장되는 데이터와 그들 간의 관계를 표현하는 스키마
+
+>- 내부 스키마 (Internal Schema)
+:내부단계, 내부스키마로 구성되어있다. DB가 물리적으로 저장된 형식.
+물리적 장치에서 데이터가 실제적으로 저장되는 방법을 표현하는 스키마이다.
+
+#### 4. 두 영역의 데이터 독립성
+>- 논리적 독립성
+: 개념스키마가 변경되어도  외부스키마에는 영향을 미치지 않도록 지원하는 것이다.
+논리적 구조가 변경되어도 응용프로그램에 영향이 없다.
+- 특징
+: 사용자 특성에 맞는 변경이 가능하고, 통합 구조 변경이 가능하다.
+
+>- 물리적 독립성
+: 내부스키마가 변경되어도 외부/개념스키마는 영향을 받지 않도록 지원하는 것이다.
+저장장치의 구조변경은 응용프로그램과 개념스키마에 영향이 없다.
+- 특징
+: 물리적 구조 영향없이 개념 구조 변경이 가능하다.
+개념 구조 영향없이 물리적인 구조 변경이 가능하다.
+
+#### 5. 사상(Mapping)
+- 상호 독립적인 개념을 연결시켜주는 다리를 뜻한다.
+- 데이터 독립성에는 크게 두 가지의 사상이 도출된다.
+
+>- 외부적/개념적 사상(논리적 사상)
+:외부적 뷰와 개념적 뷰의 상호 관련성을 정의한다.  
+
+>- 개념적/내부적 사상(물리적 사상)
+: 개념적 뷰와 저장된 데이터베이스의 상호 관련성을 정의한다.
+
+---------------------------------------------------------
+### 데이터 모델링의 중요한 세 가지 개념
+#### 1. 데이터 모델링을 구성하는 중요한 개념 세 가지
+>- 업무가 관여하는 어떤 것 (Things)
+- 어떤 것이 가지는 성격 (Attributes)
+- 업무가 관여하는 어떤 것 간의 관계 (Relationships)
+
+=> 데이터 모델을 완성하는 핵심 개념 : ```엔터티```, ```속성```, ```관계```
+#### 2. 단수와 집합(복수)의 명명
+- 데이터 모델링에서는 세 가지 개념에 대해서 단수와 복수의 개념을 분명하게 구분하고있다. 
+![](https://velog.velcdn.com/images/i_am_heeeun/post/07ecfe85-bd94-45d0-a689-a5d38c0fbbba/image.png)
+[출처] https://dataonair.or.kr/
+
+---------------------------------------------------------
+### 데이터 모델링의 이해관계자
+#### 1. 이해관계자의 데이터 모델링 중요성 인식
+> 정보시스템을 개발할 때 데이터 모델링, 데이터베이스 구축, 구축된 데이터의 적절한 활용은 다른 어떤 타스크보다 중요하다는 점이다.
+대부분의 기업에 있어서 정보시스템의 데이터베이스 구조는 사용자에게 숨겨진 형태로 구축되어 왔다. => 정보의 고립화
+
+#### 2. 데이터 모델링의 이해관계자
+>누가 데이터 모델링에 대해 연구하고 학습해야 하나?
+- 정보시스템을 구축하는 모든사람은 데이터 모델링도 전문적으로 할 수 있거나 적어도 완성된 모델을 정확하게 해석 할 수 있어야 한다. 즉, 프로젝트에 참여한 모든 IT 기술자들은 데이터 모델링을 정확하게 알고 있어야 한다.
+- IT 기술에 종사하거나 전공하지 않았더라도 해당 업무에서 정보화를 추진하는 위치에 있는 사람도 데이터 모델링에 대한 개념 및 세부 사항에 대해 어느 정도 지식을 가지고 있어야 한다.
+
+
+---------------------------------------------------------
+### 데이터 모델의 표기법인 ERD 이해
+#### 1. 데이터 모델 표기법
+- 데이터 모델에 대한 표기법으로 1976년 피터첸이 E-R모델(Entity-relationship model)이라는 표기법을 만들었다.
+엔터티를 사각형으로 표기하고 관계를 마름모 속성을 타원형으로 표현한다.
+![](https://velog.velcdn.com/images/i_am_heeeun/post/9882a066-5a07-4136-bba0-5ebfeb824bbf/image.png)
+
+#### 2. ERD 표기법으로 모델링하는 방법
+- ERD(Entity Relationship Diagram)는 각 업무 분석에서 도출된 엔터티와 엔터티간의 관계를 이해하기 쉽게 도식화된 다이어그램으로 표시하는 방법이다.
+- 일정한 규칙을 지정하여 그림으로써 데이터 모델을 누구나 공통된 시각으로 파악할 수 있고 의사소통을 원활하게 할 수 있다.
+#### 2.1 ERD 작업순서
+➊ 엔터티를 그린다.
+➋ 엔터티를 적절하게 배치한다.
+➌ 엔터티 간 관계를 설정한다.
+➍ 관계명을 기술한다. 
+➎ 관계의 참여도를 기술한다.
+➏ 관계의 필수여부를 기술한다.
+- ERD는 엔터티와 엔터티 사이의 관계가 있는 정보를 나타내므로 두 개를 이용하여 작성하고, 이에 따라 Primary key와 Foreign Key를 ERD규칙에 따라 기술한다.
+#### 2.2 엔터티 배치
+- 가장 중요한 엔터티를 왼쪽 상단에 배치하고, 이것을 중심으로 다른 엔터티를 나열하면서 전개한다.
+- 업무 흐름에 중심이 되는 엔터티, 보통 업무 흐름에 있어서 중심이 되는 엔터티는 타 엔터티와 많은 관계를 가지고 있으므로 중앙에 배치한다.
+- 업무를 진행하는 중심 엔터티와 관계를 갖는 엔터티들은 중심에 배치된 엔터티를 주위에 배치하도록 한다.
+#### 2.3 ERD관계의 연결
+- 엔터티에 배치가되면 관계를 정의한 분석서를 보고 서로 관련 있는 엔터티 간에 관계를 설정한다.
+- 초기에는 모두 Primary key로 속성이 상속되는 식별자 관계를 설정한다.
+- 중복되는 관계가 발생되지 않도록 하고, Circle관계도 발생하지 않도록 유의하여 작성한다.
+#### 2.4 ERD 관계명의 표시
+- 관계 설정이 완료되면 연결된 관계에 대해 관계 이름을 표시한다. 이때 관계이름은 현재형을 사용하고 지나치게 포괄적인 용어는 사용하지 않도록 한다.
+#### 2.5 ERD 관계 관계차수와 선택성 표시
+- 관계에 대한 이름을 모두 지정하였으면 관계가 참여하는 성격 중 엔터티 내에 인스턴스들이 얼마나 관계에 참여하는지를 나타내는 관계차수(Cardinality)를 표현한다.
+- IE표기법에서는 하나의 관계는 실선으로 표기하고, 바커표기법에서는 점선과 실선을 혼합하여 표기한다.
+- 1:M관계는 까마귀발과 같은 모양으로 그려준다. 관계의 필수/선택 표시는 관계선에 원을 그려서 표현한다.
+
+<img src="https://velog.velcdn.com/images/i_am_heeeun/post/67048a1f-94f3-4cb3-8555-6c9bc8d2df51/image.png" width="550px" height="100px">
+<img src="https://velog.velcdn.com/images/i_am_heeeun/post/37911ef4-1778-40b6-9158-15dd395da6dc/image.png" width="550px" height="">
+
+
+---------------------------------------------------------
+### 좋은 데이터 모델의 요소
+#### 1. 완전성
+>업무에서 필요로 하는 모든 데이터가 데이터 모델에 정의되어 있어야 한다. 
+이 기준이 충족되지 못한다면 다른 어떤 평가 기준도 의미가 없어진다. 
+
+#### 2. 중복 배제
+>하나의 데이터베이스 내에 동일한 사실은 반드시 한 번만 기록하여야 한다.
+저장공간, 중복 관리되는 데이터의 일관성을 유지하기 위한 추가적인 데이터 조작 등이 대표적으로 낭비되는 비용이다.
+
+#### 3. 업무 규칙
+> 데이터 모델에서 매우 중요한 요소 중 하나가 데이터 모델링 과정에서 도출되고 규명되는 수많은 업무 규칙을 데이터 모델에 표현하고 이를 해당 데이터 모델을 활용하는 모든 사용자가 공유할 수 있도록 제공하는 것이다. 
+데이터 아키텍처에서 언급되는 논리 데이터 모델에서 이러한 요소들이 포함되어야 함은 매우 중요하다.
+
+#### 4. 데이터 재사용
+>데이터는 프로세스의 흐름에 따라서 관리되게 마련이다. 이렇게 되면 데이터 중복이 많이 발생하고 데이터의 일관성 문제가 심각하게 초래된다. 데이터 어플리케이션에 대해 독립적으로 설계되어야만 데이터 재사용성을 높일 수 있다.
+데이터 모델이 갖추어야 하는 중요한 요소 중에 하나는 기업이 관리하고자 하는 데이터를 합리적으로 균형있으면서도 단순하게 분류하는 것이다.
+
+#### 5. 의사소통
+> 정보시스템을 운용,관리하는 많은 관련자들이 설계자가 정의한 많은 업무 규칙들을 동일한 의미로 받아들이고 활용할 수 있게 하는 역할을 한다. 즉 데이터 모델이 진정한 의사소통의 도구로서의 역할을 하게 된다.
+
+#### 6. 통합성
+>가장 바람직한 데이터 구조의 형태는 동일한 데이터는 조직 전체에서 한번만 정의되고 이를 여러 다른 영역에서 참조,활용하는 것이다.
+동일한 성격의 데이터를 한 번만 정의하기 위해서는 공유 데이터에 대한 구조를 여러 업무 영역에서 공동으로 사용하기 용이하게 설계할 수 있어야 한다.
+
+---------------------------------------------------------
+출처: SQL 전문가 가이드 , https://dataonair.or.kr/
